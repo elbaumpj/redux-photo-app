@@ -11,21 +11,11 @@ class Main extends React.Component {
                 <h1>
                     <Link to="/">Elbaumstagram</Link>
                 </h1>
+                {React.cloneElement(this.props.children, this.props)}
             </div>
         );       
     }
 }
 
-// const Main = React.createClass({
-//     render() {
-//         return (
-//             <div>
-//                 <h1>
-//                     <Link to="/">Elbaumstagram</Link>
-//                 </h1>
-//             </div>
-//         ); 
-//     }
-// }); 
 
 export default Main; 
