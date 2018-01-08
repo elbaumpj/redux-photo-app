@@ -7,7 +7,7 @@ class Comments extends React.Component {
                 <p>
                     <strong>{comment.user}</strong>
                     {comment.text}
-                    <button className="remove-comment">&times;</button>
+                    <button className="remove-comment" onClick={this.props.removeComment.bind(null, this.props.params.postId, i)}>&times;</button>
                 </p>
             </div>
         )
@@ -20,6 +20,8 @@ class Comments extends React.Component {
         const comment = this.refs.comment.value; 
          
         this.props.addComment(postId, author, comment); 
+        // reset inputs
+        this.refs.commentForm.reset(); 
     }
     render() {
         return(
