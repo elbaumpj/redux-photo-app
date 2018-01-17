@@ -2,6 +2,7 @@ import React from 'react';
 
 class Comments extends React.Component {
     renderComment(comment, i) {
+        console.log('testing this', this); 
         return (
             <div className="comment" key={i}>
                 <p>
@@ -24,9 +25,10 @@ class Comments extends React.Component {
         this.refs.commentForm.reset(); 
     }
     render() {
+        console.log(this); 
         return(
             <div className="comments">
-                {this.props.postComments.map(this.renderComment)} 
+                {this.props.postComments.map(this.renderComment.bind(this))} 
                 <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit.bind(this)}>
                     <input type="text" ref="author" placeholder="author" />
                     <input type="text" ref="comment" placeholder="comment" />
